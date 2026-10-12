@@ -13,13 +13,15 @@ import javax.swing.JOptionPane;
 public class VistaBanco extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VistaBanco.class.getName());
-
+    private ControladorBanco controlador;
     /**
      * Creates new form VistaBanco
      */
     public VistaBanco() {
-        initComponents();
-    }
+    this.controlador = new ControladorBanco();
+    initComponents();
+    this.setLocationRelativeTo(null);
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
