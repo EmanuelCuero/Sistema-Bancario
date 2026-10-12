@@ -181,4 +181,120 @@ public class VistaBanco extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+private void crearCuentaAhorros() {
+    try {
+        String numero = JOptionPane.showInputDialog(this, "Numero de cuenta:");
+        String dueno = JOptionPane.showInputDialog(this, "Nombre del dueno:");
+        int dia = Integer.parseInt(JOptionPane.showInputDialog(this, "Dia de apertura:"));
+        int mes = Integer.parseInt(JOptionPane.showInputDialog(this, "Mes de apertura:"));
+        int anio = Integer.parseInt(JOptionPane.showInputDialog(this, "Anio de apertura:"));
+        double saldoInicial = Double.parseDouble(JOptionPane.showInputDialog(this, "Saldo inicial:"));
+
+        boolean ok = controlador.crearCuentaAhorros(numero, dueno, dia, mes, anio, saldoInicial);
+        if (ok) {
+            JOptionPane.showMessageDialog(this, "Cuenta de ahorros creada correctamente.");
+        } else {
+            JOptionPane.showMessageDialog(this, "Numero de cuenta duplicado.",
+                    "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    } catch (NumberFormatException ex) {
+        JOptionPane.showMessageDialog(this, "Debe ingresar valores numericos validos.",
+                "Error de formato", JOptionPane.ERROR_MESSAGE);
+    } catch (ArithmeticException ex) {
+        JOptionPane.showMessageDialog(this, ex.getMessage(),
+                "Error en los datos", JOptionPane.ERROR_MESSAGE);
+    } catch (Exception ex) {
+        JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage(),
+                "Error", JOptionPane.ERROR_MESSAGE);
+    }
+}
+
+private void crearCuentaCorriente() {
+    try {
+        String numero = JOptionPane.showInputDialog(this, "Numero de cuenta:");
+        String dueno = JOptionPane.showInputDialog(this, "Nombre del dueno:");
+        int dia = Integer.parseInt(JOptionPane.showInputDialog(this, "Dia de apertura:"));
+        int mes = Integer.parseInt(JOptionPane.showInputDialog(this, "Mes de apertura:"));
+        int anio = Integer.parseInt(JOptionPane.showInputDialog(this, "Anio de apertura:"));
+        double saldoInicial = Double.parseDouble(JOptionPane.showInputDialog(this, "Saldo inicial:"));
+        double cupo = Double.parseDouble(JOptionPane.showInputDialog(this, "Cupo de sobregiro:"));
+
+        boolean ok = controlador.crearCuentaCorriente(numero, dueno, dia, mes, anio, saldoInicial, cupo);
+        if (ok) {
+            JOptionPane.showMessageDialog(this, "Cuenta corriente creada correctamente.");
+        } else {
+            JOptionPane.showMessageDialog(this, "Numero duplicado o cupo invalido.",
+                    "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    } catch (NumberFormatException ex) {
+        JOptionPane.showMessageDialog(this, "Debe ingresar valores numericos validos.",
+                "Error de formato", JOptionPane.ERROR_MESSAGE);
+    } catch (ArithmeticException ex) {
+        JOptionPane.showMessageDialog(this, ex.getMessage(),
+                "Error en los datos", JOptionPane.ERROR_MESSAGE);
+    } catch (Exception ex) {
+        JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage(),
+                "Error", JOptionPane.ERROR_MESSAGE);
+    }
+}
+
+private void consignar() {
+    try {
+        String numero = JOptionPane.showInputDialog(this, "Numero de cuenta:");
+        double valor = Double.parseDouble(JOptionPane.showInputDialog(this, "Valor a consignar:"));
+
+        boolean ok = controlador.consignar(numero, valor);
+        if (ok) {
+            JOptionPane.showMessageDialog(this, "Consignacion realizada correctamente.");
+        } else {
+            JOptionPane.showMessageDialog(this, "La cuenta no existe.",
+                    "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    } catch (NumberFormatException ex) {
+        JOptionPane.showMessageDialog(this, "Debe ingresar un numero valido.",
+                "Error de formato", JOptionPane.ERROR_MESSAGE);
+    } catch (ArithmeticException ex) {
+        JOptionPane.showMessageDialog(this, ex.getMessage(),
+                "Error en la operacion", JOptionPane.ERROR_MESSAGE);
+    } catch (Exception ex) {
+        JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage(),
+                "Error", JOptionPane.ERROR_MESSAGE);
+    }
+}
+
+private void retirar() {
+    try {
+        String numero = JOptionPane.showInputDialog(this, "Numero de cuenta:");
+        double valor = Double.parseDouble(JOptionPane.showInputDialog(this, "Valor a retirar:"));
+
+        boolean ok = controlador.retirar(numero, valor);
+        if (ok) {
+            JOptionPane.showMessageDialog(this, "Retiro realizado correctamente.");
+        } else {
+            JOptionPane.showMessageDialog(this, "La cuenta no existe.",
+                    "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    } catch (NumberFormatException ex) {
+        JOptionPane.showMessageDialog(this, "Debe ingresar un numero valido.",
+                "Error de formato", JOptionPane.ERROR_MESSAGE);
+    } catch (ArithmeticException ex) {
+        JOptionPane.showMessageDialog(this, ex.getMessage(),
+                "Error en la operacion", JOptionPane.ERROR_MESSAGE);
+    } catch (Exception ex) {
+        JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage(),
+                "Error", JOptionPane.ERROR_MESSAGE);
+    }
+}
+
+private void consultar() {
+    try {
+        String numero = JOptionPane.showInputDialog(this, "Numero de cuenta:");
+        String datosCompletos = controlador.obtenerDatosCuenta(numero);
+        String soloSaldo = controlador.obtenerDatosCuenta(numero, true);
+        areaResultado.setText(datosCompletos + "\n" + soloSaldo + "\n");
+    } catch (Exception ex) {
+        JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage(),
+                "Error", JOptionPane.ERROR_MESSAGE);
+    }
+}
 }
