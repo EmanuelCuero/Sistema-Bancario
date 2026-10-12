@@ -142,7 +142,7 @@ public class VistaBanco extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRetirarActionPerformed
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
-        // TODO add your handling code here:
+        consultar();
     }//GEN-LAST:event_btnConsultarActionPerformed
 
     /**
