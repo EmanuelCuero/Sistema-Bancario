@@ -130,7 +130,7 @@ public class VistaBanco extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCrearCorrienteActionPerformed
 
     private void btnConsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsignarActionPerformed
-        // TODO add your handling code here:
+        consignar();// TODO add your handling code here:
     }//GEN-LAST:event_btnConsignarActionPerformed
 
     private void btnCrearAhorrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearAhorrosActionPerformed
