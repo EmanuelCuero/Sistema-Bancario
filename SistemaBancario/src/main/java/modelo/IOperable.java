@@ -8,6 +8,11 @@ package modelo;
  *
  * @author emanu
  */
-public class IOperable {
-    
+// interfaz que define las operaciones bancarias basicas
+public interface IOperable {
+    void consignar(double valor);
+    void retirar(double valor) throws ArithmeticException;
+    double consultarSaldo();
+    String mostrarDatos();
+    String mostrarDatos(boolean soloSaldo);
 }
