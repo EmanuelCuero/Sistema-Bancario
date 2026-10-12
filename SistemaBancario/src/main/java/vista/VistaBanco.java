@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package vista;
+import controlador.ControladorBanco;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -41,16 +43,19 @@ public class VistaBanco extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnCrearAhorros.setText("Crear Cuenta de Ahorros");
+        btnCrearAhorros.addActionListener(this::btnCrearAhorrosActionPerformed);
 
         btnCrearCorriente.setText("Crear Cuenta Corriente");
         btnCrearCorriente.addActionListener(this::btnCrearCorrienteActionPerformed);
 
         btnRetirar.setText("Retirar");
+        btnRetirar.addActionListener(this::btnRetirarActionPerformed);
 
         btnConsignar.setText("Consignar");
         btnConsignar.addActionListener(this::btnConsignarActionPerformed);
 
         btnConsultar.setText("Consultar Cuenta");
+        btnConsultar.addActionListener(this::btnConsultarActionPerformed);
 
         btnLimpiar.setText("Limpiar");
         btnLimpiar.addActionListener(this::btnLimpiarActionPerformed);
@@ -125,6 +130,18 @@ public class VistaBanco extends javax.swing.JFrame {
     private void btnConsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsignarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnConsignarActionPerformed
+
+    private void btnCrearAhorrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearAhorrosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCrearAhorrosActionPerformed
+
+    private void btnRetirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetirarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRetirarActionPerformed
+
+    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnConsultarActionPerformed
 
     /**
      * @param args the command line arguments
